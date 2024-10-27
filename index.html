@@ -1,0 +1,549 @@
+
+
+<script>
+
+
+
+
+
+
+
+
+    let state = {};
+  
+  
+    state.z=' '
+    state.outof=0
+    state.score=0   
+  
+  
+
+        function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+    function newproblem(){
+                    document.getElementById("score").innerText=""
+        state.outof ++;
+        state.score=0 
+        document.getElementById("score3").innerText=(state.outof)
+        document.getElementById("score2").innerText=(state.score)
+        
+        state.n=0
+        state.j=0
+        document.getElementById("ch").disabled=false
+        document.getElementById("loop20").disabled=false
+        document.getElementById("loop30").disabled=false
+        document.getElementById("loop40").disabled=false
+        document.getElementById("loope").disabled=true
+        document.getElementById("loope2").disabled=true
+        document.getElementById("loope3").disabled=true
+        document.getElementById("loope4").disabled=true
+    document.getElementById("loop").innerText='';
+    document.getElementById("operater1").innerText='';
+    document.getElementById("operater2").innerText='';
+    document.getElementById("loop").innerText='';
+    document.getElementById("loopp").innerText='';
+    document.getElementById("looppp").innerText='';
+    state.C=(getRandomInt(23)+1)
+    document.getElementById("loop2").innerText=state.C;
+    state.D=(getRandomInt(23)+1)
+    document.getElementById("loop3").innerText=state.D;
+    state.E=(getRandomInt(23)+1)
+    document.getElementById("loop4").innerText=state.E;
+    //document.getElementById("h").innerText=(state.gorp);
+    //document.getElementById("h").innerText=(state.state);
+    goalmake()
+  
+  
+    }
+ 
+ 
+    function shouldiend(){
+        if (state.n == 3)
+    {
+        document.getElementById("loop20").disabled=true
+        document.getElementById("loop30").disabled=true
+        document.getElementById("loop40").disabled=true
+        document.getElementById("loope").disabled=true
+        document.getElementById("loope2").disabled=true
+        document.getElementById("loope3").disabled=true
+        document.getElementById("loope4").disabled=true
+    }
+    }
+  
+    function check(){
+        document.getElementById("ch").disabled=true
+        document.getElementById("loop20").disabled=true
+        document.getElementById("loop30").disabled=true
+        document.getElementById("loop40").disabled=true
+        document.getElementById("loope").disabled=true
+        document.getElementById("loope2").disabled=true
+        document.getElementById("loope3").disabled=true
+        document.getElementById("loope4").disabled=true
+        if (state.op1=="plus"){
+           state.g = state.num1+state.num2
+        }
+        if (state.op1=="minus"){
+           state.g = state.num1-state.num2
+        }
+        if (state.op1=="times"){
+           state.g = state.num1*state.num2
+        }
+        if (state.op1=="slash"){
+           state.g = state.num1/state.num2
+        }
+        if (state.op2=="plus"){
+           state.g = state.g+state.num3
+        }
+        if (state.op2=="minus"){
+           state.g = state.g-state.num3
+        }
+        if (state.op2=="times"){
+           state.g = state.g*state.num3
+        }
+        if (state.op2=="slash"){
+           state.g = state.g/state.num3
+        }
+      
+        console.log(state.g)
+
+ 
+        if (state.g == state.goal){
+            console.log('great')
+            document.getElementById("score").innerText="Wonderful"
+            state.score++;
+        }
+        else{
+            console.log('sorry')
+            document.getElementById("score").innerText="Oops sorry"
+        }
+        
+        document.getElementById("score2").innerText=state.score
+       // document.getElementById("h").innerText=state.g;
+
+    }
+
+    function reset(){
+
+        state.outof=0
+        state.score=0
+        newproblem()
+
+    }
+
+    function A(){
+       
+      
+        document.getElementById("loop20").disabled=true
+        document.getElementById("loop30").disabled=true
+        document.getElementById("loop40").disabled=true
+        document.getElementById("loope").disabled=false
+        document.getElementById("loope2").disabled=false
+        document.getElementById("loope3").disabled=false
+        document.getElementById("loope4").disabled=false
+        if (state.n == 0){
+        state.z=document.getElementById("loop").innerText;
+        state.z = (state.z).concat((state.C));
+        document.getElementById("loop").innerText=state.z;
+        state.n++;
+        state.num1=state.C
+        }
+        else{
+            if (state.n == 1){
+            state.z=document.getElementById("loopp").innerText;
+        state.z = (state.z).concat((state.C));
+        document.getElementById("loopp").innerText=state.z;
+        state.num2=state.C
+            state.n++;
+        }
+        else{
+            state.z=document.getElementById("looppp").innerText;
+        state.z = (state.z).concat((state.C));
+        document.getElementById("looppp").innerText=state.z;
+        state.n++;
+        state.num3=state.C
+        }
+        }
+ 
+ 
+        shouldiend()
+      
+    }
+  
+  
+    function B(){
+        document.getElementById("loop20").disabled=true
+        document.getElementById("loop30").disabled=true
+        document.getElementById("loop40").disabled=true
+        document.getElementById("loope").disabled=false
+        document.getElementById("loope2").disabled=false
+        document.getElementById("loope3").disabled=false
+        document.getElementById("loope4").disabled=false
+        if (state.n == 0){
+            state.z=document.getElementById("loop").innerText;
+        state.z = (state.z).concat((state.D));
+        document.getElementById("loop").innerText=state.z;  
+        state.n++;
+        state.num1=state.D
+       
+        }
+        else{
+            if (state.n == 1){
+            state.z=document.getElementById("loopp").innerText;
+        state.z = (state.z).concat((state.D));
+        document.getElementById("loopp").innerText=state.z;  
+        state.n++;
+        state.num2=state.D
+        }
+        else{            state.z=document.getElementById("looppp").innerText;
+        state.z = (state.z).concat((state.D));
+        document.getElementById("looppp").innerText=state.z;
+        state.n++;
+        state.num3=state.D
+    }
+ 
+ 
+        }
+     
+        shouldiend()
+    }
+  
+  
+  
+    function C(){
+        document.getElementById("loop20").disabled=true
+        document.getElementById("loop30").disabled=true
+        document.getElementById("loop40").disabled=true
+        document.getElementById("loope").disabled=false
+        document.getElementById("loope2").disabled=false
+        document.getElementById("loope3").disabled=false
+        document.getElementById("loope4").disabled=false
+        if (state.n == 0){
+        state.z=document.getElementById("loop").innerText;
+        state.z = (state.z).concat((state.E));
+        document.getElementById("loop").innerText=state.z;
+        state.n++;
+        state.num1=state.E
+        }
+        else{
+        if (state.n == 1){
+        state.z=document.getElementById("loopp").innerText;
+        state.z = (state.z).concat((state.E));
+        document.getElementById("loopp").innerText=state.z;
+        state.n++;
+        state.num2=state.E
+        }
+        else{
+            state.z=document.getElementById("looppp").innerText;
+        state.z = (state.z).concat((state.E));
+        document.getElementById("looppp").innerText=state.z;
+        state.n++;
+        state.num3=state.E
+      
+        }
+    }
+    shouldiend()
+    }
+    function Plus(){
+        document.getElementById("loop20").disabled=false
+        document.getElementById("loop30").disabled=false
+        document.getElementById("loop40").disabled=false
+        document.getElementById("loope").disabled=true
+        document.getElementById("loope2").disabled=true
+        document.getElementById("loope3").disabled=true
+        document.getElementById("loope4").disabled=true
+        if (state.j == 0){
+        state.z=document.getElementById("operater1").innerText;
+        state.op1="plus"
+        state.z = (state.z).concat(('+'));
+        document.getElementById("operater1").innerText=state.z;
+        state.j++;
+      
+        }
+        else{
+        state.z=document.getElementById("operater2").innerText;
+        state.op2="plus"
+        state.z = (state.z).concat(('+'));
+        document.getElementById("operater2").innerText=state.z; 
+      
+         }
+    }
+  
+    function Minus(){
+        document.getElementById("loop20").disabled=false
+        document.getElementById("loop30").disabled=false
+        document.getElementById("loop40").disabled=false
+        document.getElementById("loope").disabled=true
+        document.getElementById("loope2").disabled=true
+        document.getElementById("loope3").disabled=true
+        document.getElementById("loope4").disabled=true
+        if (state.j == 0){
+        state.z=document.getElementById("operater1").innerText;
+        state.op1="minus"
+        state.z = (state.z).concat(('-'));
+        document.getElementById("operater1").innerText=state.z;
+        state.j++;
+        }
+        else{
+            //console.log('e')
+        state.z=document.getElementById("operater2").innerText;
+        state.op2="minus"
+        state.z = (state.z).concat(('-'));
+        document.getElementById("operater2").innerText=state.z; 
+      
+  
+        }
+    }
+    function Times(){
+        document.getElementById("loop20").disabled=false
+        document.getElementById("loop30").disabled=false
+        document.getElementById("loop40").disabled=false
+        document.getElementById("loope").disabled=true
+        document.getElementById("loope2").disabled=true
+        document.getElementById("loope3").disabled=true
+        document.getElementById("loope4").disabled=true
+        if (state.j == 0){
+        state.z=document.getElementById("operater1").innerText;
+        state.op1="times"
+        state.z = (state.z).concat(('*'));
+        document.getElementById("operater1").innerText=state.z;
+        state.j++;
+      
+        }
+        else{
+        state.z=document.getElementById("operater2").innerText;
+        state.op2="times"
+        state.z = (state.z).concat(('*'));
+        document.getElementById("operater2").innerText=state.z; 
+      
+         }
+    }
+    function Slash(){
+        document.getElementById("loop20").disabled=false
+        document.getElementById("loop30").disabled=false
+        document.getElementById("loop40").disabled=false
+        document.getElementById("loope").disabled=true
+        document.getElementById("loope2").disabled=true
+        document.getElementById("loope3").disabled=true
+        document.getElementById("loope4").disabled=true
+
+        
+
+
+        if (state.j == 0){
+        state.z=document.getElementById("operater1").innerText;
+        state.op1="slash"
+        state.z = (state.z).concat(('/'));
+        document.getElementById("operater1").innerText=state.z;
+        state.j++;
+      
+        }
+        else{
+        state.z=document.getElementById("operater2").innerText;
+        state.op2="slash"
+        state.z = (state.z).concat(('/'));
+        document.getElementById("operater2").innerText=state.z; 
+      
+         }
+    }
+     function goalmake(){
+ 
+ 
+    state.picknum1 = getRandomInt(2)
+    state.picknum1++;
+ 
+ 
+    state.picknum2 = getRandomInt(2)
+    state.picknum2++;
+ 
+ 
+    state.picknum3 = getRandomInt(2)
+    state.picknum3++;
+ 
+ 
+ 
+ 
+ 
+ 
+    state.opp = getRandomInt(3)
+    state.opp++;
+ 
+ 
+    state.opp2 = getRandomInt(3)
+    state.opp2++;
+ 
+ 
+    if (state.picknum1 == 1){
+    state.picknum1 = state.C
+    }
+ 
+ 
+    if (state.picknum1 == 2){
+    state.picknum1 = state.D
+    }
+ 
+ 
+    if (state.picknum1 == 3){
+    state.picknum1 = state.E
+    }
+ 
+ 
+ 
+ 
+ 
+ 
+    if (state.picknum2 == 1){
+    state.picknum2 = state.C
+    }
+ 
+ 
+    if (state.picknum2 == 2){
+    state.picknum2 = state.D
+    }
+ 
+ 
+    if (state.picknum2 == 3){
+    state.picknum2 = state.E
+    }
+ 
+ 
+ 
+ 
+ 
+ 
+    if (state.picknum3 == 1){
+    state.picknum3 = state.C
+    }
+ 
+ 
+    if (state.picknum3 == 2){
+    state.picknum3 = state.D
+    }
+ 
+ 
+    if (state.picknum3 == 3){
+    state.picknum3 = state.E
+    }
+ 
+ 
+ 
+ 
+ 
+ 
+    if (state.opp == 1){
+        state.part1 = state.picknum1+state.picknum2
+    }
+ 
+ 
+    if (state.opp == 2){
+        state.part1 = state.picknum1-state.picknum2
+    }
+ 
+ 
+    if (state.opp == 3){
+        state.part1 = state.picknum1*state.picknum2
+    }
+ 
+ 
+    if (state.opp == 4){
+        state.part1 = state.picknum1/state.picknum2
+    }
+ 
+ 
+ 
+ 
+    if (state.opp2 == 1){
+        state.goal = state.part1+state.picknum3
+    }
+ 
+ 
+    if (state.opp2 == 2){
+        state.goal = state.part1-state.picknum3
+    }
+                                                                                                                                                                    
+ 
+    if (state.opp2 == 3){
+        state.goal = state.part1*state.picknum3
+    }
+ 
+ 
+    if (state.opp2 == 4){
+        state.goal = state.part1/state.picknum3   
+    }
+   
+    document.getElementById("goal").innerText=state.goal; 
+    }
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ //from the screen, to the ring, to the pеn, to the king, Where's my crown? That's my bling Always drama when I ring
+   
+  
+  
+  
+    </script>
+
+     <style>
+        body{
+            background-color: black;
+        }
+        </style>
+
+<div style="color: lime; background-color: black;">
+    <button  style="color: lime; background-color: rgb(59, 0, 0);" onclick="newproblem()">new problem</button>    <button id="ch" style="color: lime; background-color: rgb(59, 0, 0);" onclick="check()">check</button> &nbsp; &nbsp; &nbsp; &nbsp; <button style="color: lime; background-color: rgb(59, 0, 0);" onclick="reset()">reset</button>
+    <br>
+    <br>
+    <span style="background-color: rgb(31, 31, 31); color: greenyellow;" id="loop"></span><span style="background-color: rgb(31, 31, 31); color: greenyellow;" id="operater1"></span><span style="background-color:rgb(31, 31, 31); color: greenyellow;" id="loopp"></span><span style="background-color: rgb(31, 31, 31); color: greenyellow;" id="operater2"></span><span style="background-color:rgb(31, 31, 31); color: greenyellow;" id="looppp"></span>
+    <br>
+</div>
+<div style="background-color: transparent;">
+    <br>
+    <button id="loop20" onclick="A()"><span id="loop2"></span></button><button  id="loop30" onclick="B()"><span id="loop3"></span></button><button id="loop40" onclick="C()"><span id="loop4"></span></button>
+    <br>
+    <button id="loope" onclick="Plus()">+</button><button id="loope2" onclick="Minus()">-</button><button id="loope3" onclick="Times()">x</span></button><button id="loope4" onclick="Slash()">/</span></button>
+    <br>
+    <br>
+</div>
+    <div style="color: lime; background-color: black;">
+    <br>
+    Goal: <span id="goal"></span>
+    <br>
+    <br>
+    <span id="score"></span>
+    <br>
+    <br>
+    Score: <span id="score2"></span>/<span id="score3"></span>
+    <br>
+    <br>
+    <textarea hidden="true">Number1/operater1/Number2/operater2/Number3</textarea>
+ 
+ 
+ 
+    <script>
+               //document.getElementById("h").value=state.score
+               document.getElementById("score2").innerText=state.score
+    </script>
+
+    <hr>
+    so what you need to do is to create a equasion that equals the goal, for a new challenge click "new problem" then to check your answer click "check" and to completly restart click "reset"
+    <br>
+    <br>
+   IMPORTANT: no order of operations needed and equasion built in order as number operation number operation number
+   <br>
+   <br>
+    a finished example eqasion might be 56+12-6 might be a correct answer if the nunmbers are 56,12, and 6 and the goal is 62
+
+</div>
+
+   
+ 
+ 
+  
+  
+ 
+ 
