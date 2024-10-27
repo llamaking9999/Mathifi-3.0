@@ -22,11 +22,13 @@
       return Math.floor(Math.random() * max);
     }
     function newproblem(){
-                    document.getElementById("score").innerText=""
+
         state.outof ++;
-        state.score=0 
+
         document.getElementById("score3").innerText=(state.outof)
-        document.getElementById("score2").innerText=(state.score)
+        document.getElementById("score").innerText=(" ")
+
+
         
         state.n=0
         state.j=0
@@ -127,6 +129,8 @@
 
         state.outof=0
         state.score=0
+        document.getElementById("score2").innerText=(state.score)
+        document.getElementById("score3").innerText=(state.outof)
         newproblem()
 
     }
